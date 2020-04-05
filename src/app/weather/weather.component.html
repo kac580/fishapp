@@ -23,16 +23,15 @@
             Current Temperature: 
             {{ this.weatherData?.current.temperature }}
         </div>
-<!-- 
-        <div class="text-center" *ngIf="this.weatherData?.current.pressure">
-            Current Pressure:
-            {{ this.weatherData?.current.pressure}}
-        </div> -->
-        
         <div class="text-center" *ngIf="this.weatherData?.historical.avgtemp">
             Previous AvgTemp: 
             {{ this.weatherData?.historical.avgtemp }} 
             
-        </div>
+        </div> 
 
+        <!-- <div class="text-center" *ngIf="this.weatherData?.historical.hourly.pressure">
+            Previous AvgTemp: 
+            {{ this.weatherData?.historical.hourly[1].pressure }} 
+            
+        </div> -->
 </div>
