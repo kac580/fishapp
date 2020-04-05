@@ -23,9 +23,14 @@
             Current Temperature: 
             {{ this.weatherData?.current.temperature }}
         </div>
-        <div class="text-center" *ngIf="this.weatherData?.historical.avgtemp">
-            Previous AvgTemp: 
-            {{ this.weatherData?.historical.avgtemp }} 
+        <div class="text-center" *ngIf="this.weatherData?.current.wind_speed">
+            test: 
+            {{ this.weatherData?.historical.mintemp }} 
+            
+        </div> 
+        <div class="text-center" *ngIf="this.weatherData?.historical.mintemp">
+            test: 
+            {{ this.weatherData?.historical.mintemp }} 
             
         </div> 
 
