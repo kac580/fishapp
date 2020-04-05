@@ -19,13 +19,13 @@
         {{ this.weatherData?.location.region }},
         {{ this.weatherData?.location.country }}
         </div>
-        <div class="text-center" *ngIf="this.weatherData?.current.pressure">
-            Current Pressure: 
-            {{ this.weatherData?.current.pressure }} mb
+        <div class="text-center" *ngIf="this.weatherData?.current.temperature">
+            Current Temperature: 
+            {{ this.weatherData?.current.temperature }}
         </div>
-        <div class="text-center" *ngIf="this.weatherData?.historical.pressure">
-            Previous Pressure: 
-            {{ this.weatherData?.historical.pressure }} mb
+        <div class="text-center" *ngIf="this.weatherData?.historical.avgtemp">
+            Previous AvgTemp: 
+            {{ this.weatherData?.historical.avgtemp }} 
             
         </div>
 
