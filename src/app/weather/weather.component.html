@@ -1,0 +1,32 @@
+<div class="card m-3">
+    <h5 class="card-header">Weather Info</h5>
+    <div class="card-body">
+        <form [formGroup]="weatherSearchForm" (ngSubmit)="sendToAPI(weatherSearchForm.value)">
+            <input class="form-control" type="text" id="weatherLocation" aria-describedby="weatherLocation"
+                placeholder="Please input ZipCode" formControlName="location" />
+            <button type="submit" class="btn btn-success btn-sm">
+                Search
+            </button>
+        </form>
+    </div>
+    <!-- <div class="text-center" *ngIf="this.weatherData?.current.temperature">
+        Current Temperature: 
+        {{ this.weatherData?.current.temperature }} F
+    </div> -->
+
+    <div class="text-center" *ngIf="weatherData?.location.name">
+        Location Searched: {{ this.weatherData?.location.name }},
+        {{ this.weatherData?.location.region }},
+        {{ this.weatherData?.location.country }}
+        </div>
+        <div class="text-center" *ngIf="this.weatherData?.current.pressure">
+            Current Pressure: 
+            {{ this.weatherData?.current.pressure }} mb
+        </div>
+        <div class="text-center" *ngIf="this.weatherData?.historical.pressure">
+            Previous Pressure: 
+            {{ this.weatherData?.historical.pressure }} mb
+            
+        </div>
+
+</div>
