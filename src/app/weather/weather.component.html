@@ -3,40 +3,34 @@
     <div class="card-body">
         <form [formGroup]="weatherSearchForm" (ngSubmit)="sendToAPI(weatherSearchForm.value)">
             <input class="form-control" type="text" id="weatherLocation" aria-describedby="weatherLocation"
-                placeholder="Please input ZipCode" formControlName="location" />
+                placeholder="Please input location" formControlName="location" />
             <button type="submit" class="btn btn-success btn-sm">
                 Search
             </button>
         </form>
     </div>
-    <!-- <div class="text-center" *ngIf="this.weatherData?.current.temperature">
-        Current Temperature: 
-        {{ this.weatherData?.current.temperature }} F
-    </div> -->
 
+    <!--Gather Location info that was used in search-->
     <div class="text-center" *ngIf="weatherData?.location.name">
         Location Searched: {{ this.weatherData?.location.name }},
         {{ this.weatherData?.location.region }},
         {{ this.weatherData?.location.country }}
         </div>
+
+    <!--Gather current weather details-->
         <div class="text-center" *ngIf="this.weatherData?.current.temperature">
             Current Temperature: 
             {{ this.weatherData?.current.temperature }}
         </div>
-        <div class="text-center" *ngIf="this.weatherData?.current.wind_speed">
-            test: 
-            {{ this.weatherData?.historical.mintemp }} 
-            
-        </div> 
+        <div class="text-center" *ngIf="this.weatherData?.current.pressure">
+            Current Pressure: 
+            {{ this.weatherData?.current.pressure }}
+        </div>
+        
+      <!--Gather historical weather details-->      
         <div class="text-center" *ngIf="this.weatherData?.historical.mintemp">
-            test: 
-            {{ this.weatherData?.historical.mintemp }} 
-            
+            Historical Average Temp: 
+            {{ this.weatherData?.historical.mintemp }}     
         </div> 
 
-        <!-- <div class="text-center" *ngIf="this.weatherData?.historical.hourly.pressure">
-            Previous AvgTemp: 
-            {{ this.weatherData?.historical.hourly[1].pressure }} 
-            
-        </div> -->
 </div>

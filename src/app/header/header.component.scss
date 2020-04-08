@@ -1,0 +1,20 @@
+.home-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.banner-image {
+    width: 100%;
+    height: 100%;
+    min-height: 150px;
+    background-image: url("https://secure.i.telegraph.co.uk/multimedia/archive/01361/fly-fishing-Scandi_1361259c.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.card-title {
+    color: green;
+    font-weight: bold;
+}
