@@ -3,13 +3,20 @@
     <div class="card-body">
         <form [formGroup]="weatherSearchForm" (ngSubmit)="sendToAPI(weatherSearchForm.value)">
             <input class="form-control" type="text" id="weatherLocation" aria-describedby="weatherLocation"
-                placeholder="Please input location" formControlName="location" />
+                placeholder="Please input a location" formControlName="location"            
+                />
+                <div *ngIf="
+        this.weatherSearchForm.controls.location.invalid &&
+        (this.weatherSearchForm.controls.location.dirty ||
+        this.weatherSearchForm.controls.location.touched)
+        "
+        class="alert alert-danger">Please Input a location</div>
             <button type="submit" class="btn btn-success btn-sm">
                 Search
             </button>
         </form>
     </div>
-
+<!-- </div>  -->
     <!--Gather Location info that was used in search-->
     <div class="text-center" *ngIf="weatherData?.location.name">
         Location Searched: {{ this.weatherData?.location.name }},
@@ -18,19 +25,26 @@
         </div>
 
     <!--Gather current weather details-->
+    
+    <div class="text-center" >
+        Current Date: {{ this.weatherData?.location.localtime | date: "short" }}
+    </div>  
         <div class="text-center" *ngIf="this.weatherData?.current.temperature">
-            Current Temperature: 
-            {{ this.weatherData?.current.temperature }}
+            Current Temperature: {{ this.weatherData?.current.temperature }}
         </div>
         <div class="text-center" *ngIf="this.weatherData?.current.pressure">
-            Current Pressure: 
-            {{ this.weatherData?.current.pressure }}
+            Current Pressure: {{ this.weatherData?.current.pressure }}
         </div>
         
       <!--Gather historical weather details-->      
-        <div class="text-center" *ngIf="this.weatherData?.historical.mintemp">
-            Historical Average Temp: 
-            {{ this.weatherData?.historical.mintemp }}     
+        <div class="text-center" *ngFor="let history of this.weatherData?.historical | keyvalue">
+            Historical Date:  {{ history.key | date: "short" }}
         </div> 
-
-</div>
+        <div class="text-center" *ngFor="let history of this.weatherData?.historical | keyvalue">
+            Historical AvgTemp: {{ history.value.avgtemp }}  
+        </div> 
+        
+        <div class="text-center" *ngFor="let history of this.weatherData?.historical | keyvalue">
+            Historical Pressure: {{ history.value.hourly[0].pressure }}     
+        </div> 
+       </div>
