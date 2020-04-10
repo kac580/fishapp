@@ -1,5 +1,4 @@
-<div class="card m-3">
-    <h5 class="card-header">Weather Info</h5>
+
     <div class="card-body">
         <form [formGroup]="weatherSearchForm" (ngSubmit)="sendToAPI(weatherSearchForm.value)">
             <input class="form-control" type="text" id="weatherLocation" aria-describedby="weatherLocation"
@@ -16,7 +15,7 @@
             </button>
         </form>
     </div>
-<!-- </div>  -->
+
     <!--Gather Location info that was used in search-->
     <div class="text-center" *ngIf="weatherData?.location.name">
         Location Searched: {{ this.weatherData?.location.name }},
@@ -26,7 +25,7 @@
 
     <!--Gather current weather details-->
     
-    <div class="text-center" >
+    <div class="text-center" *ngIf="this.weatherData?.location.localtime" > 
         Current Date: {{ this.weatherData?.location.localtime | date: "short" }}
     </div>  
         <div class="text-center" *ngIf="this.weatherData?.current.temperature">
@@ -47,4 +46,4 @@
         <div class="text-center" *ngFor="let history of this.weatherData?.historical | keyvalue">
             Historical Pressure: {{ history.value.hourly[0].pressure }}     
         </div> 
-       </div>
+ 

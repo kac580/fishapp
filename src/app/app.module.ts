@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WeatherComponent } from './weather/weather.component';
 import { HeaderComponent } from './header/header.component';
+import { LinksComponent } from './links/links.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { HeaderComponent } from './header/header.component';
     AppComponent,
     WeatherComponent,
     HeaderComponent,
+    LinksComponent,
   ],
   imports: [
     BrowserModule,
