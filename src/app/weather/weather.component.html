@@ -10,7 +10,7 @@
         this.weatherSearchForm.controls.location.touched)
         "
         class="alert alert-danger">Please Input a location</div>
-            <button type="submit" class="btn btn-primary btn-sm">
+            <button type="submit" class="btn btn-dark btn-sm">
                 Search
             </button>
         </form>
@@ -26,7 +26,7 @@
     <!--Gather current weather details-->
     
     <div class="text-center" *ngIf="this.weatherData?.location.localtime" > 
-        Current Date: {{ this.weatherData?.location.localtime | date}}
+        Current Date: {{ this.weatherData?.location.localtime | date: "short"}}
     </div>  
         <div class="text-center" *ngIf="this.weatherData?.current.temperature">
             Current Temperature: {{ this.weatherData?.current.temperature }}
@@ -37,7 +37,7 @@
         
       <!--Gather historical weather details-->      
         <div class="text-center" *ngFor="let history of this.weatherData?.historical | keyvalue">
-            Historical Date:  {{ history.key | date}}
+            Historical Date:  {{ history.key | date: "short"}}
         </div> 
         <div class="text-center" *ngFor="let history of this.weatherData?.historical | keyvalue">
             Historical AvgTemp: {{ history.value.avgtemp }}  
