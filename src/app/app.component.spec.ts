@@ -45,6 +45,3 @@ import { LocationStrategy } from '@angular/common';
     //         cmp.change.emit(1);
     //         expect(component.onChange).toHaveBeenCalledWith(1);
     //       });
-
- 
-    
