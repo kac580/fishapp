@@ -23,7 +23,7 @@ export class WeatherComponent implements OnInit {
       location: ["",Validators.required]
     })
   }
-sendToAPI(formValues){
+  sendToAPI(formValues){
   this.apiService.getHistorical(formValues.location).subscribe(data => {
     this.weatherData = data;
     console.log(this.weatherData);
