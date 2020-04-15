@@ -7,41 +7,48 @@ import { WeatherComponent } from './weather/weather.component';
 import { componentFactoryName } from '@angular/compiler';
 import { DebugElement } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ɵROUTER_PROVIDERS } from '@angular/router';
+import { ɵROUTER_PROVIDERS, RouterModule } from '@angular/router';
 import { LocationStrategy } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { Router, ActivatedRoute } from '@angular/router';
+
+const fakeActivatedRoute = {
+  snapshot: {
+    queryParms: {
+      returnUrl: '/'
+    }
+  }
+}
+const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
 
 
-// describe('Link Active', () => {
-//     beforeEachProviders(() => [
-//         ɵROUTER_PROVIDERS,
-//         provide(LocationStrategy, {useClass: MockLocationStrategy})
-//     ]);
+describe('AppComponent',() => {
+    let component: AppComponent;
+    let fixture: ComponentFixture<AppComponent>;
 
+beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ AppComponent,
+            HeaderComponent,
+            LinksComponent,
+            WeatherComponent ],
+     imports: [ReactiveFormsModule, FormsModule, HttpClientTestingModule,
+        RouterTestingModule
+    ],
+    providers: [
+        {provide: Router, useValue: routerSpy },
+        {provide: ActivatedRoute, useFactory: () => fakeActivatedRoute }
+      ]
+    })
+    .compileComponents();
+  }));
 
-    
-
-
-    // beforeEach(() => {
-    //     TestBed.configureTestingModule({
-    //       declarations: [AppComponent]
-    //     });
-    //   });
-    
-    //   beforeEach(() => {
-    //     fixture = TestBed.createComponent(AppComponent);
-    //     component = fixture.componentInstance;
-    //     de = fixture.debugElement;
-    //   });
-    
+  //// out of the box test - fails
   
-      
-    // describe('onChange', () => {
-    //     let component: AppComponent;
-    //     let de: DebugElement;
-    //     it('should be called with whatever the counter change event emits', () => {
-    //         spyOn(component, 'onChange');
-    //         const counter = de.query(By.directive(AppComponent));
-    //         const cmp = counter.componentInstance;
-    //         cmp.change.emit(1);
-    //         expect(component.onChange).toHaveBeenCalledWith(1);
-    //       });
+//   it('should create the app', () => {
+//     const fixture = TestBed.createComponent(AppComponent);
+//     const app = fixture.debugElement.componentInstance;
+//     expect(app).toBeTruthy();
+//   });
+});
