@@ -7,26 +7,34 @@ import { WeatherComponent } from './weather/weather.component';
 import { componentFactoryName } from '@angular/compiler';
 import { DebugElement } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { ɵROUTER_PROVIDERS } from '@angular/router';
+import { LocationStrategy } from '@angular/common';
 
 
-describe('AppComponent', () => {
-    let fixture: ComponentFixture<AppComponent>;
-    let component: AppComponent;
-    let de: DebugElement;
+// describe('Link Active', () => {
+//     beforeEachProviders(() => [
+//         ɵROUTER_PROVIDERS,
+//         provide(LocationStrategy, {useClass: MockLocationStrategy})
+//     ]);
+
+
     
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-          declarations: [AppComponent]
-        });
-      });
+
+
+    // beforeEach(() => {
+    //     TestBed.configureTestingModule({
+    //       declarations: [AppComponent]
+    //     });
+    //   });
     
-      beforeEach(() => {
-        fixture = TestBed.createComponent(AppComponent);
-        component = fixture.componentInstance;
-        de = fixture.debugElement;
-      });
+    //   beforeEach(() => {
+    //     fixture = TestBed.createComponent(AppComponent);
+    //     component = fixture.componentInstance;
+    //     de = fixture.debugElement;
+    //   });
     
   
+      
     // describe('onChange', () => {
     //     let component: AppComponent;
     //     let de: DebugElement;
@@ -39,5 +47,4 @@ describe('AppComponent', () => {
     //       });
 
  
-    });
     

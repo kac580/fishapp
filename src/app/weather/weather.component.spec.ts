@@ -28,16 +28,10 @@ beforeEach(async(() => {
     //     expect(result).toBe(pipe.transform("dd/mm/yyyy"));
     // })
 
-    // it('should return false if the form control is not valid', () => {
-    //     component.ngOnInit();
-    //     expect(component.weatherSearchForm.valid).toBe(false);
-    // })
-    describe('invalid form', () => {
-        it('should return false if the form control is not valid', () => {
-            component.ngOnInit();
-            expect(component.weatherSearchForm.valid).toBe(false);
-          });
+    it('should return false if the form control is not valid', () => {
+        component.ngOnInit();
+        expect(component.weatherSearchForm.valid).toBe(false);
     })
-   
+ 
 
 });
