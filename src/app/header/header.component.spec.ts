@@ -13,16 +13,6 @@ describe('HeaderComponent', () => {
     .compileComponents();
   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('should render title in a h4 tag', () => {
     const fixture = TestBed.createComponent(HeaderComponent);
     fixture.detectChanges();

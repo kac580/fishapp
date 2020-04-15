@@ -7,11 +7,19 @@ describe('WeatherComponent', () => {
   let component: WeatherComponent;
   let fixture: ComponentFixture<WeatherComponent>;
 
-    it ('should display date in short format', () => {
-
-        const pipe = new DatePipe('en-US');
-        const result = pipe.transform(pipe);
-        expect(result).toBe("4/11/20");
-
+beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ WeatherComponent ]
     })
+    .compileComponents();
+  }));
+
+
+    // it ('should display date in short format', () => {
+
+    //     const pipe = new DatePipe('en-US');
+    //     const result = pipe.transform(pipe);
+    //     expect(result).toBe("4/11/20");
+
+    // })
 });

@@ -9,6 +9,7 @@ import { ApiService } from '../api.service';
 })
 export class WeatherComponent implements OnInit {
 
+
   public weatherSearchForm: FormGroup;
   public weatherData: any;
 
